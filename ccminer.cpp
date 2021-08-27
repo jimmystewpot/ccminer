@@ -1614,7 +1614,7 @@ static bool stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 #endif
 			sha256d(merkle_root, merkle_root, 64);
 	}
-	
+
 	/* Increment extranonce2 */
 	for (i = 0; i < (int)sctx->xnonce2_size && !++sctx->job.xnonce2[i]; i++);
 
@@ -2503,11 +2503,11 @@ static void *miner_thread(void *userdata)
 		case ALGO_POLYTIMOS:
 			rc = scanhash_polytimos(thr_id, &work, max_nonce, &hashes_done);
 			break;
-#ifndef ARM64
 		case ALGO_SCRYPT:
 			rc = scanhash_scrypt(thr_id, &work, max_nonce, &hashes_done,
 				NULL, &tv_start, &tv_end);
 			break;
+#ifndef ARM64
 		case ALGO_SCRYPT_JANE:
 			rc = scanhash_scrypt_jane(thr_id, &work, max_nonce, &hashes_done,
 				NULL, &tv_start, &tv_end);

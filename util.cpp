@@ -1800,7 +1800,7 @@ static bool stratum_show_message(struct stratum_ctx *sctx, json_t *id, json_t *p
 	val = json_array_get(params, 0);
 	if (val)
 		applog(LOG_NOTICE, "MESSAGE FROM SERVER: %s", json_string_value(val));
-	
+
 	if (!id || json_is_null(id))
 		return true;
 
@@ -2278,10 +2278,10 @@ void print_hash_tests(void)
 
 	qubithash(&hash[0], &buf[0]);
 	printpfx("qubit", hash);
-#ifndef ARM64
+
 	scrypthash(&hash[0], &buf[0]);
 	printpfx("scrypt", hash);
-
+#ifndef ARM64
 	scryptjane_hash(&hash[0], &buf[0]);
 	printpfx("scrypt-jane", hash);
 #endif
@@ -2293,7 +2293,7 @@ void print_hash_tests(void)
 
 	sha256q_hash(&hash[0], &buf[0]);
 	printpfx("sha256q", hash);
-  
+
 	sia_blake2b_hash(&hash[0], &buf[0]);
 	printpfx("sia", hash);
 
@@ -2320,7 +2320,7 @@ void print_hash_tests(void)
 
 	bitcore_hash(&hash[0], &buf[0]);
 	printpfx("bitcore", hash);
-	
+
 	exosis_hash(&hash[0], &buf[0]);
 	printpfx("exosis", hash);
 

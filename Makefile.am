@@ -35,7 +35,7 @@ ccminer_SOURCES	= elist.h miner.h compat.h \
 			  myriadgroestl.cpp cuda_myriadgroestl.cu \
 			  lyra2/Lyra2.c lyra2/Sponge.c \
 			  lyra2/lyra2RE.cu lyra2/cuda_lyra2.cu \
-		          lyra2/lyra2REv2.cu lyra2/cuda_lyra2v2.cu \
+		      lyra2/lyra2REv2.cu lyra2/cuda_lyra2v2.cu \
 			  lyra2/lyra2REv3.cu lyra2/cuda_lyra2v3.cu \
 			  lyra2/Lyra2Z.c lyra2/lyra2Z.cu lyra2/cuda_lyra2Z.cu \
 			  lyra2/allium.cu \
@@ -59,6 +59,10 @@ ccminer_SOURCES	= elist.h miner.h compat.h \
 			  quark/quarkcoin.cu quark/cuda_quark_compactionTest.cu \
 			  neoscrypt/neoscrypt.cpp neoscrypt/neoscrypt-cpu.c neoscrypt/cuda_neoscrypt.cu \
 			  pentablake.cu skein.cu cuda_skeincoin.cu skein2.cpp zr5.cu \
+			  scrypt.cpp scrypt/blake.cu scrypt/keccak.cu scrypt/sha256.cu \
+			  scrypt/salsa_kernel.cu scrypt/test_kernel.cu \
+    		  scrypt/fermi_kernel.cu scrypt/kepler_kernel.cu \
+    		  scrypt/nv_kernel.cu scrypt/nv_kernel2.cu scrypt/titan_kernel.cu \
 			  skunk/skunk.cu skunk/cuda_skunk.cu skunk/cuda_skunk_streebog.cu \
 			  sha256/sha256d.cu sha256/cuda_sha256d.cu sha256/sha256t.cu sha256/cuda_sha256t.cu sha256/sha256q.cu sha256/cuda_sha256q.cu \
 			  sia/sia.cu sia/sia-rpc.cpp sph/blake2b.c \
@@ -90,7 +94,7 @@ if !ARCH_ARM64
   ccminer_SOURCES += equi/equi.cpp equi/blake2/blake2bx.cpp equi/equihash.cpp equi/cuda_equi.cu
 
   # scrypt
-  ccminer_SOURCES += scrypt.cpp scrypt-jane.cpp \
+  ccminer_SOURCES += scrypt-jane.cpp \
     scrypt/blake.cu scrypt/keccak.cu scrypt/sha256.cu \
     scrypt/salsa_kernel.cu scrypt/test_kernel.cu \
     scrypt/fermi_kernel.cu scrypt/kepler_kernel.cu \
@@ -128,10 +132,10 @@ ccminer_LDADD += -lcuda
 
 nvcc_ARCH :=
 #nvcc_ARCH += -gencode=arch=compute_75,code=\"sm_75,compute_75\" # CUDA 10 req.
-#nvcc_ARCH += -gencode=arch=compute_72,code=\"sm_72,compute_72\" # CUDA 10 req.
+nvcc_ARCH += -gencode=arch=compute_72,code=\"sm_72,compute_72\" # CUDA 10 req.
 #nvcc_ARCH += -gencode=arch=compute_70,code=\"sm_70,compute_70\" # CUDA 9.1
 #nvcc_ARCH += -gencode=arch=compute_61,code=\"sm_61,compute_61\" # CUDA 8
-nvcc_ARCH += -gencode=arch=compute_52,code=\"sm_52,compute_52\"
+#nvcc_ARCH += -gencode=arch=compute_52,code=\"sm_52,compute_52\"
 #nvcc_ARCH += -gencode=arch=compute_50,code=\"sm_50,compute_50\"
 #nvcc_ARCH += -gencode=arch=compute_35,code=\"sm_35,compute_35\"
 #nvcc_ARCH += -gencode=arch=compute_30,code=\"sm_30,compute_30\"

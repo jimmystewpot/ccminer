@@ -59,9 +59,9 @@ void algo_free_all(int thr_id)
 	free_c11(thr_id);
 	free_cryptolight(thr_id);
 	free_cryptonight(thr_id);
+	free_scrypt(thr_id);
 #ifndef ARM64
 	free_equihash(thr_id);
-	free_scrypt(thr_id);
 	free_scrypt_jane(thr_id);
 #endif
 	free_decred(thr_id);
