@@ -35,7 +35,7 @@ ccminer_SOURCES	= elist.h miner.h compat.h \
 			  myriadgroestl.cpp cuda_myriadgroestl.cu \
 			  lyra2/Lyra2.c lyra2/Sponge.c \
 			  lyra2/lyra2RE.cu lyra2/cuda_lyra2.cu \
-		      lyra2/lyra2REv2.cu lyra2/cuda_lyra2v2.cu \
+			  lyra2/lyra2REv2.cu lyra2/cuda_lyra2v2.cu \
 			  lyra2/lyra2REv3.cu lyra2/cuda_lyra2v3.cu \
 			  lyra2/Lyra2Z.c lyra2/lyra2Z.cu lyra2/cuda_lyra2Z.cu \
 			  lyra2/allium.cu \
@@ -61,8 +61,8 @@ ccminer_SOURCES	= elist.h miner.h compat.h \
 			  pentablake.cu skein.cu cuda_skeincoin.cu skein2.cpp zr5.cu \
 			  scrypt.cpp scrypt/blake.cu scrypt/keccak.cu scrypt/sha256.cu \
 			  scrypt/salsa_kernel.cu scrypt/test_kernel.cu \
-    		  scrypt/fermi_kernel.cu scrypt/kepler_kernel.cu \
-    		  scrypt/nv_kernel.cu scrypt/nv_kernel2.cu scrypt/titan_kernel.cu \
+			  scrypt/fermi_kernel.cu scrypt/kepler_kernel.cu \
+			  scrypt/nv_kernel.cu scrypt/nv_kernel2.cu scrypt/titan_kernel.cu \
 			  skunk/skunk.cu skunk/cuda_skunk.cu skunk/cuda_skunk_streebog.cu \
 			  sha256/sha256d.cu sha256/cuda_sha256d.cu sha256/sha256t.cu sha256/cuda_sha256t.cu sha256/sha256q.cu sha256/cuda_sha256q.cu \
 			  sia/sia.cu sia/sia-rpc.cpp sph/blake2b.c \
@@ -93,13 +93,14 @@ if !ARCH_ARM64
   # equihash
   ccminer_SOURCES += equi/equi.cpp equi/blake2/blake2bx.cpp equi/equihash.cpp equi/cuda_equi.cu
 
+endif
   # scrypt
   ccminer_SOURCES += scrypt-jane.cpp \
     scrypt/blake.cu scrypt/keccak.cu scrypt/sha256.cu \
     scrypt/salsa_kernel.cu scrypt/test_kernel.cu \
     scrypt/fermi_kernel.cu scrypt/kepler_kernel.cu \
     scrypt/nv_kernel.cu scrypt/nv_kernel2.cu scrypt/titan_kernel.cu
-endif
+
 
 if HAVE_NVML
 nvml_defs = -DUSE_WRAPNVML
