@@ -93,14 +93,13 @@ if !ARCH_ARM64
   # equihash
   ccminer_SOURCES += equi/equi.cpp equi/blake2/blake2bx.cpp equi/equihash.cpp equi/cuda_equi.cu
 
-endif
   # scrypt
   ccminer_SOURCES += scrypt-jane.cpp \
     scrypt/blake.cu scrypt/keccak.cu scrypt/sha256.cu \
     scrypt/salsa_kernel.cu scrypt/test_kernel.cu \
     scrypt/fermi_kernel.cu scrypt/kepler_kernel.cu \
     scrypt/nv_kernel.cu scrypt/nv_kernel2.cu scrypt/titan_kernel.cu
-
+endif
 
 if HAVE_NVML
 nvml_defs = -DUSE_WRAPNVML
@@ -133,7 +132,7 @@ ccminer_LDADD += -lcuda
 
 nvcc_ARCH :=
 #nvcc_ARCH += -gencode=arch=compute_75,code=\"sm_75,compute_75\" # CUDA 10 req.
-nvcc_ARCH += -gencode=arch=compute_72,code=\"sm_72,compute_72\" # CUDA 10 req.
+#nvcc_ARCH += -gencode=arch=compute_72,code=\"sm_72,compute_72\" # CUDA 10 req.
 #nvcc_ARCH += -gencode=arch=compute_70,code=\"sm_70,compute_70\" # CUDA 9.1
 #nvcc_ARCH += -gencode=arch=compute_61,code=\"sm_61,compute_61\" # CUDA 8
 #nvcc_ARCH += -gencode=arch=compute_52,code=\"sm_52,compute_52\"
