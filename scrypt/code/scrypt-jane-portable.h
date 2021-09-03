@@ -58,7 +58,7 @@
 	typedef unsigned char uint8_t;
 	typedef unsigned short uint16_t;
 	typedef unsigned int uint32_t;
-	typedef signed int int32_t;	
+	typedef signed int int32_t;
 	typedef unsigned __int64 uint64_t;
 	typedef signed __int64 int64_t;
 
@@ -158,7 +158,7 @@
 	#endif
 #endif
 
-#if defined(CPU_X86_64) || defined(CPU_IA64) || defined(CPU_SPARC64) || defined(__64BIT__) || defined(__LP64__) || defined(_LP64) || (defined(_MIPS_SZLONG) && (_MIPS_SZLONG == 64)) || defined(CPU_AARCH64)
+#if defined(CPU_X86_64) || defined(CPU_IA64) || defined(CPU_SPARC64) || defined(__64BIT__) || defined(__LP64__) || defined(_LP64) || (defined(_MIPS_SZLONG) && (_MIPS_SZLONG == 64))
 	#define CPU_64BITS
 	#undef FASTCALL
 	#define FASTCALL
@@ -166,6 +166,10 @@
 	#define CDECL
 	#undef STDCALL
 	#define STDCALL
+#endif
+
+if defined(CPU_AARCH64)
+	#define CPU_64BITS
 #endif
 
 #if defined(powerpc) || defined(__PPC__) || defined(__ppc__) || defined(_ARCH_PPC) || defined(__powerpc__) || defined(__powerpc) || defined(POWERPC) || defined(_M_PPC)
