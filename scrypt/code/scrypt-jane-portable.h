@@ -43,10 +43,10 @@
 	#if (COMPILER_MSVC >= 1500)
 		#define COMPILER_HAS_TMMINTRIN
 	#endif
-	
+
 	#pragma warning(disable : 4127) /* conditional expression is constant */
 	#pragma warning(disable : 4100) /* unreferenced formal parameter */
-	
+
 	#ifndef _CRT_SECURE_NO_WARNINGS
 	#define _CRT_SECURE_NO_WARNINGS
 	#endif
@@ -147,6 +147,8 @@
 	#define CPU_X86 300
 #elif defined(__ia64__) || defined(_IA64) || defined(__IA64__) || defined(_M_IA64) || defined(__ia64)
 	#define CPU_IA64
+#elif defined(__aarch64__) || defined(__aarch64)
+	#define CPU_AARCH64
 #endif
 
 #if defined(__sparc__) || defined(__sparc) || defined(__sparcv9)
@@ -156,7 +158,7 @@
 	#endif
 #endif
 
-#if defined(CPU_X86_64) || defined(CPU_IA64) || defined(CPU_SPARC64) || defined(__64BIT__) || defined(__LP64__) || defined(_LP64) || (defined(_MIPS_SZLONG) && (_MIPS_SZLONG == 64))
+#if defined(CPU_X86_64) || defined(CPU_IA64) || defined(CPU_SPARC64) || defined(__64BIT__) || defined(__LP64__) || defined(_LP64) || (defined(_MIPS_SZLONG) && (_MIPS_SZLONG == 64)) || defined(CPU_AARCH64)
 	#define CPU_64BITS
 	#undef FASTCALL
 	#define FASTCALL
@@ -189,7 +191,7 @@
 
 #if ((defined(__BYTE_ORDER) && defined(__LITTLE_ENDIAN) && (__BYTE_ORDER == __LITTLE_ENDIAN)) || \
 	 (defined(BYTE_ORDER) && defined(LITTLE_ENDIAN) && (BYTE_ORDER == LITTLE_ENDIAN)) || \
-	 (defined(CPU_X86) || defined(CPU_X86_64)) || \
+	 (defined(CPU_X86) || defined(CPU_X86_64)) || defined(CPU_AARCH64) || \
 	 (defined(vax) || defined(MIPSEL) || defined(_MIPSEL)))
 #define CPU_LE
 #elif ((defined(__BYTE_ORDER) && defined(__BIG_ENDIAN) && (__BYTE_ORDER == __BIG_ENDIAN)) || \
