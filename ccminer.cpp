@@ -3987,7 +3987,7 @@ int main(int argc, char *argv[])
 #else
 		printf("    Built with the nVidia CUDA Toolkit %d.%d %s %s\n\n",
 #endif
-			CUDART_VERSION/1000, (CUDART_VERSION % 1000)/10, arch, platform);
+			CUDART_VERSION/1000, (CUDART_VERSION % 1000)/10, platform, arch);
 		printf("  Originally based on Christian Buchner and Christian H. project\n");
 		printf("  Include some kernels from alexis78, djm34, djEzo, tsiv and krnlx.\n\n");
 		printf("BTC donation address: 1AJdfCpLWPNoAMDfHF1wD5y8VgKSSTHxPo (tpruvot)\n\n");
