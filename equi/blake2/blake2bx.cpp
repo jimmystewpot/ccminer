@@ -27,14 +27,16 @@
 
 #ifndef ARM64
 #include <emmintrin.h>
-#else
-#include "sse2neon.h"
 #endif
 #if defined(HAVE_SSSE3)
 #include <tmmintrin.h>
 #endif
 #if defined(HAVE_SSE41)
+#ifndef ARM64
 #include <smmintrin.h>
+#else
+#include "sse2neon.h"
+#endif
 #endif
 #if defined(HAVE_AVX)
 #include <immintrin.h>
