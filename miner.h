@@ -130,13 +130,13 @@ static inline bool is_x64(void) {
 
 
 static inline char get_platform(void) {
-#if defined(__aarch64__)
-	return "ARMv8+";
-#endif
-#if defined(__x86_64__)
+#if defined(__x86_64__) || defined(_WIN64) || defined(__amd64__) || defined(__amd64) || defined(_M_X64)
 	return "x86-64";
-#endif
+#elif defined(__aarch64__) || defined(__ARM64__) || defined(ARM64)
+	return "ARMv8+";
+#else
 	return "unknown";
+#endif
 }
 
 #if ((__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3))
