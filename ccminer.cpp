@@ -3984,9 +3984,9 @@ int main(int argc, char *argv[])
 #ifdef _MSC_VER
 		printf("    Built with VC++ %d and nVidia CUDA SDK %d.%d %s\n\n", msver(),
 #else
-		printf("    Built with the nVidia CUDA Toolkit %d.%d %s\n\n",
+		printf("    Built with the nVidia CUDA Toolkit %d.%d %s %s\n\n",
 #endif
-			CUDART_VERSION/1000, (CUDART_VERSION % 1000)/10, arch);
+			CUDART_VERSION/1000, (CUDART_VERSION % 1000)/10, arch, get_platform());
 		printf("  Originally based on Christian Buchner and Christian H. project\n");
 		printf("  Include some kernels from alexis78, djm34, djEzo, tsiv and krnlx.\n\n");
 		printf("BTC donation address: 1AJdfCpLWPNoAMDfHF1wD5y8VgKSSTHxPo (tpruvot)\n\n");

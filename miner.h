@@ -7,6 +7,7 @@ extern "C" {
 
 #include <ccminer-config.h>
 
+#include <string>
 #include <stdbool.h>
 #include <inttypes.h>
 #include <sys/time.h>
@@ -126,6 +127,17 @@ static inline bool is_x64(void) {
 #else
 	return 0;
 #endif
+}
+
+
+static inline string get_platform(void) {
+#if defined(__aarch64__)
+	return "ARMv8+"
+#endif
+#if defined(__x86_64__)
+	return "x86-64"
+#endif
+	return "unknown"
 }
 
 #if ((__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3))
