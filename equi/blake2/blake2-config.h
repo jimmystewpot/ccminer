@@ -64,7 +64,8 @@
 #define HAVE_SSE2
 #endif
 
-#ifdef HAVE_NEON
+#ifdef ARM64
+#define HAVE_NEON
 #define HAVE_SSE2
 #define HAVE_SSE41
 #endif
