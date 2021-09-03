@@ -64,6 +64,10 @@
 #define HAVE_SSE2
 #endif
 
+#ifdef HAVE_NEON
+#define HAVE_SSE41
+#endif
+
 #if !defined(HAVE_SSE2)
 
 #ifdef _MSC_VER

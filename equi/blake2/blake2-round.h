@@ -23,7 +23,7 @@
 	\
 	row2l = _mm_roti_epi64(row2l, -24); \
 	row2h = _mm_roti_epi64(row2h, -24); \
- 
+
 #define G2(row1l,row2l,row3l,row4l,row1h,row2h,row3h,row4h) \
 	row1l = _mm_add_epi64(row1l, row2l); \
 	row1h = _mm_add_epi64(row1h, row2h); \
