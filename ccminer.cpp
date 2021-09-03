@@ -2507,12 +2507,10 @@ static void *miner_thread(void *userdata)
 			rc = scanhash_scrypt(thr_id, &work, max_nonce, &hashes_done,
 				NULL, &tv_start, &tv_end);
 			break;
-#ifndef ARM64
 		case ALGO_SCRYPT_JANE:
 			rc = scanhash_scrypt_jane(thr_id, &work, max_nonce, &hashes_done,
 				NULL, &tv_start, &tv_end);
 			break;
-#endif
 		case ALGO_SKEIN:
 			rc = scanhash_skeincoin(thr_id, &work, max_nonce, &hashes_done);
 			break;

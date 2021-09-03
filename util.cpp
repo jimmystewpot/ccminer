@@ -2281,10 +2281,10 @@ void print_hash_tests(void)
 
 	scrypthash(&hash[0], &buf[0]);
 	printpfx("scrypt", hash);
-#ifndef ARM64
+
 	scryptjane_hash(&hash[0], &buf[0]);
 	printpfx("scrypt-jane", hash);
-#endif
+
 	sha256d_hash(&hash[0], &buf[0]);
 	printpfx("sha256d", hash);
 
