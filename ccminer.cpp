@@ -3981,7 +3981,7 @@ int main(int argc, char *argv[])
 	printf("*** ccminer " PACKAGE_VERSION " for nVidia GPUs by tpruvot@github ***\n");
 	if (!opt_quiet) {
 		const char* arch = is_x64() ? "64-bits" : "32-bits";
-		char plat = get_platform();
+		const char* plat = get_platform() ? "ARMv8+" : "x86-64";
 #ifdef _MSC_VER
 		printf("    Built with VC++ %d and nVidia CUDA SDK %d.%d %s %s\n\n", msver(),
 #else
