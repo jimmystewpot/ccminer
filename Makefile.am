@@ -59,8 +59,8 @@ ccminer_SOURCES	= elist.h miner.h compat.h \
 			  quark/quarkcoin.cu quark/cuda_quark_compactionTest.cu \
 			  neoscrypt/neoscrypt.cpp neoscrypt/neoscrypt-cpu.c neoscrypt/cuda_neoscrypt.cu \
 			  pentablake.cu skein.cu cuda_skeincoin.cu skein2.cpp zr5.cu \
-			  scrypt.cpp scrypt/blake.cu scrypt/keccak.cu scrypt/sha256.cu \
-			  scrypt/salsa_kernel.cu scrypt/test_kernel.cu \
+			  scrypt.cpp scrypt-jane.cpp scrypt/blake.cu scrypt/keccak.cu \
+			  scrypt/sha256.cu scrypt/salsa_kernel.cu scrypt/test_kernel.cu \
 			  scrypt/fermi_kernel.cu scrypt/kepler_kernel.cu \
 			  scrypt/nv_kernel.cu scrypt/nv_kernel2.cu scrypt/titan_kernel.cu \
 			  skunk/skunk.cu skunk/cuda_skunk.cu skunk/cuda_skunk_streebog.cu \
@@ -93,12 +93,6 @@ if !ARCH_ARM64
   # equihash
   ccminer_SOURCES += equi/equi.cpp equi/blake2/blake2bx.cpp equi/equihash.cpp equi/cuda_equi.cu
 
-  # scrypt
-  ccminer_SOURCES += scrypt-jane.cpp \
-    scrypt/blake.cu scrypt/keccak.cu scrypt/sha256.cu \
-    scrypt/salsa_kernel.cu scrypt/test_kernel.cu \
-    scrypt/fermi_kernel.cu scrypt/kepler_kernel.cu \
-    scrypt/nv_kernel.cu scrypt/nv_kernel2.cu scrypt/titan_kernel.cu
 endif
 
 if HAVE_NVML
