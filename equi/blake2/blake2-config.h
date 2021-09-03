@@ -65,6 +65,7 @@
 #endif
 
 #ifdef HAVE_NEON
+#define HAVE_SSE2
 #define HAVE_SSE41
 #endif
 
