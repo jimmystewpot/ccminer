@@ -27,6 +27,8 @@
 
 #ifndef ARM64
 #include <emmintrin.h>
+#else
+#include "sse2neon.h"
 #endif
 #if defined(HAVE_SSSE3)
 #include <tmmintrin.h>

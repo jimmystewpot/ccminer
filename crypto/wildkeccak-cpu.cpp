@@ -24,6 +24,8 @@
 #include "int128_c.h"
 #elif !defined(ARM64)
 #include <x86intrin.h>
+#elif defined(ARM64)
+#include "sse2neon.h"
 #endif
 
 #include <miner.h>
