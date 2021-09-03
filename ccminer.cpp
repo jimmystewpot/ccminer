@@ -3982,7 +3982,7 @@ int main(int argc, char *argv[])
 	if (!opt_quiet) {
 		const char* arch = is_x64() ? "64-bits" : "32-bits";
 #ifdef _MSC_VER
-		printf("    Built with VC++ %d and nVidia CUDA SDK %d.%d %s\n\n", msver(),
+		printf("    Built with VC++ %d and nVidia CUDA SDK %d.%d %s %s\n\n", msver(),
 #else
 		printf("    Built with the nVidia CUDA Toolkit %d.%d %s %s\n\n",
 #endif
