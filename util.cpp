@@ -2198,10 +2198,10 @@ void print_hash_tests(void)
 
 	cryptolight_hash(&hash[0], &buf[0]);
 	printpfx("cryptolight", hash);
-#ifndef ARM64
+
 	cryptonight_hash(&hash[0], &buf[0]);
 	printpfx("cryptonight", hash);
-#endif
+
 	memset(buf, 0, 180);
 	decred_hash(&hash[0], &buf[0]);
 	printpfx("decred", hash);
