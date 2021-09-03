@@ -168,7 +168,7 @@
 	#define STDCALL
 #endif
 
-if defined(CPU_AARCH64)
+#if defined(CPU_AARCH64)
 	#define CPU_64BITS
 #endif
 
